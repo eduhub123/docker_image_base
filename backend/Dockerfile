@@ -40,5 +40,6 @@ RUN buildDeps=" \
     
 RUN docker-php-ext-install sockets
 RUN pecl install grpc && docker-php-ext-enable grpc
+RUN pecl install excimer && docker-php-ext-enable excimer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
