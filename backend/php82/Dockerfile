@@ -22,7 +22,7 @@ RUN set -eux; \
     apt-get update; \
     apt-get upgrade -y; \
     apt-get install -y libbz2-dev libsasl2-dev; \
-    apt-get install -y gnupg gosu ca-certificates zip unzip git supervisor sqlite3 libcap2-bin dnsutils librsvg2-bin fswatch; \
+    apt-get install -y gnupg gosu ca-certificates libzip-dev zip unzip git supervisor sqlite3 libcap2-bin dnsutils librsvg2-bin fswatch; \
     apt-get install -y --no-install-recommends \
             curl \
             libmemcached-dev \
@@ -53,6 +53,8 @@ RUN set -eux; \
             --with-xpm \
             --with-freetype; \
     docker-php-ext-install gd; \
+    # Install the PHP zip library \
+    docker-php-ext-install zip; \
     # Install the PHP mbstring library
     docker-php-ext-install mbstring; \
     pecl uninstall mongodb; \
